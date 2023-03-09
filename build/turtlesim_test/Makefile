@@ -68,27 +68,17 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -112,17 +102,27 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target test
 test:
@@ -168,184 +168,109 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/roscpp_generate_messages_py.dir/rule
+turtlesim_test/CMakeFiles/spawn_client.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/spawn_client.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/spawn_client.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_py: turtlesim_test/CMakeFiles/roscpp_generate_messages_py.dir/rule
+spawn_client: turtlesim_test/CMakeFiles/spawn_client.dir/rule
 
-.PHONY : roscpp_generate_messages_py
+.PHONY : spawn_client
 
 # fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/roscpp_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
+spawn_client/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/spawn_client.dir/build.make turtlesim_test/CMakeFiles/spawn_client.dir/build
+.PHONY : spawn_client/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+turtlesim_test/CMakeFiles/sub_twise.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/sub_twise.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/sub_twise.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_py: turtlesim_test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+sub_twise: turtlesim_test/CMakeFiles/sub_twise.dir/rule
 
-.PHONY : std_msgs_generate_messages_py
+.PHONY : sub_twise
 
 # fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_msgs_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
+sub_twise/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/sub_twise.dir/build.make turtlesim_test/CMakeFiles/sub_twise.dir/build
+.PHONY : sub_twise/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+turtlesim_test/CMakeFiles/param_rgb.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/param_rgb.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/param_rgb.dir/rule
 
 # Convenience name for target.
-std_srvs_generate_messages_lisp: turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+param_rgb: turtlesim_test/CMakeFiles/param_rgb.dir/rule
 
-.PHONY : std_srvs_generate_messages_lisp
+.PHONY : param_rgb
 
 # fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
+param_rgb/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/param_rgb.dir/build.make turtlesim_test/CMakeFiles/param_rgb.dir/build
+.PHONY : param_rgb/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+turtlesim_generate_messages_cpp: turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_eus
+.PHONY : turtlesim_generate_messages_cpp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+turtlesim_generate_messages_cpp/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/build
+.PHONY : turtlesim_generate_messages_cpp/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: turtlesim_test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+geometry_msgs_generate_messages_py: turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
-.PHONY : roscpp_generate_messages_nodejs
+.PHONY : geometry_msgs_generate_messages_py
 
 # fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make turtlesim_test/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
+geometry_msgs_generate_messages_py/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_eus: turtlesim_test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+geometry_msgs_generate_messages_cpp: turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : roscpp_generate_messages_eus
+.PHONY : geometry_msgs_generate_messages_cpp
 
 # fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/roscpp_generate_messages_eus.dir/build.make turtlesim_test/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
+geometry_msgs_generate_messages_cpp/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_nodejs: turtlesim_test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+turtlesim_generate_messages_py: turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
 
-.PHONY : std_msgs_generate_messages_nodejs
+.PHONY : turtlesim_generate_messages_py
 
 # fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make turtlesim_test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: turtlesim_test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make turtlesim_test/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: turtlesim_test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: turtlesim_test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
+turtlesim_generate_messages_py/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/build
+.PHONY : turtlesim_generate_messages_py/fast
 
 # Convenience name for target.
 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
@@ -363,19 +288,79 @@ geometry_msgs_generate_messages_nodejs/fast:
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_cpp: turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+turtlesim_generate_messages_lisp: turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_cpp
+.PHONY : turtlesim_generate_messages_lisp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
+turtlesim_generate_messages_lisp/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build
+.PHONY : turtlesim_generate_messages_lisp/fast
+
+# Convenience name for target.
+turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
+turtlesim_test/CMakeFiles/pub_twise.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/pub_twise.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/pub_twise.dir/rule
+
+# Convenience name for target.
+pub_twise: turtlesim_test/CMakeFiles/pub_twise.dir/rule
+
+.PHONY : pub_twise
+
+# fast build rule for target.
+pub_twise/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/pub_twise.dir/build.make turtlesim_test/CMakeFiles/pub_twise.dir/build
+.PHONY : pub_twise/fast
+
+# Convenience name for target.
+turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_nodejs: turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
+
+.PHONY : turtlesim_generate_messages_nodejs
+
+# fast build rule for target.
+turtlesim_generate_messages_nodejs/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build
+.PHONY : turtlesim_generate_messages_nodejs/fast
 
 # Convenience name for target.
 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
@@ -408,139 +393,19 @@ std_srvs_generate_messages_eus/fast:
 .PHONY : std_srvs_generate_messages_eus/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_py: turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+std_srvs_generate_messages_lisp: turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_py
+.PHONY : std_srvs_generate_messages_lisp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_cpp: turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
-
-.PHONY : turtlesim_generate_messages_cpp
-
-# fast build rule for target.
-turtlesim_generate_messages_cpp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/build
-.PHONY : turtlesim_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: turtlesim_test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/param_rgb.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/param_rgb.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/param_rgb.dir/rule
-
-# Convenience name for target.
-param_rgb: turtlesim_test/CMakeFiles/param_rgb.dir/rule
-
-.PHONY : param_rgb
-
-# fast build rule for target.
-param_rgb/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/param_rgb.dir/build.make turtlesim_test/CMakeFiles/param_rgb.dir/build
-.PHONY : param_rgb/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: turtlesim_test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make turtlesim_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/spawn_client.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/spawn_client.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/spawn_client.dir/rule
-
-# Convenience name for target.
-spawn_client: turtlesim_test/CMakeFiles/spawn_client.dir/rule
-
-.PHONY : spawn_client
-
-# fast build rule for target.
-spawn_client/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/spawn_client.dir/build.make turtlesim_test/CMakeFiles/spawn_client.dir/build
-.PHONY : spawn_client/fast
+std_srvs_generate_messages_lisp/fast:
+	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
 
 # Convenience name for target.
 turtlesim_test/CMakeFiles/turtlesim_generate_messages_eus.dir/rule:
@@ -573,66 +438,6 @@ std_srvs_generate_messages_nodejs/fast:
 .PHONY : std_srvs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make turtlesim_test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_lisp: turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
-
-.PHONY : turtlesim_generate_messages_lisp
-
-# fast build rule for target.
-turtlesim_generate_messages_lisp/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build
-.PHONY : turtlesim_generate_messages_lisp/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_nodejs: turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
-
-.PHONY : turtlesim_generate_messages_nodejs
-
-# fast build rule for target.
-turtlesim_generate_messages_nodejs/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build
-.PHONY : turtlesim_generate_messages_nodejs/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_py: turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-
-.PHONY : turtlesim_generate_messages_py
-
-# fast build rule for target.
-turtlesim_generate_messages_py/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/turtlesim_generate_messages_py.dir/build
-.PHONY : turtlesim_generate_messages_py/fast
-
-# Convenience name for target.
 turtlesim_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
 	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 .PHONY : turtlesim_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
@@ -646,36 +451,6 @@ std_srvs_generate_messages_py: turtlesim_test/CMakeFiles/std_srvs_generate_messa
 std_srvs_generate_messages_py/fast:
 	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/std_srvs_generate_messages_py.dir/build.make turtlesim_test/CMakeFiles/std_srvs_generate_messages_py.dir/build
 .PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/pub_twise.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/pub_twise.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/pub_twise.dir/rule
-
-# Convenience name for target.
-pub_twise: turtlesim_test/CMakeFiles/pub_twise.dir/rule
-
-.PHONY : pub_twise
-
-# fast build rule for target.
-pub_twise/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/pub_twise.dir/build.make turtlesim_test/CMakeFiles/pub_twise.dir/build
-.PHONY : pub_twise/fast
-
-# Convenience name for target.
-turtlesim_test/CMakeFiles/sub_twise.dir/rule:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f CMakeFiles/Makefile2 turtlesim_test/CMakeFiles/sub_twise.dir/rule
-.PHONY : turtlesim_test/CMakeFiles/sub_twise.dir/rule
-
-# Convenience name for target.
-sub_twise: turtlesim_test/CMakeFiles/sub_twise.dir/rule
-
-.PHONY : sub_twise
-
-# fast build rule for target.
-sub_twise/fast:
-	cd /home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build && $(MAKE) -f turtlesim_test/CMakeFiles/sub_twise.dir/build.make turtlesim_test/CMakeFiles/sub_twise.dir/build
-.PHONY : sub_twise/fast
 
 src/test01_pub_twist.o: src/test01_pub_twist.cpp.o
 
@@ -792,46 +567,31 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... rebuild_cache"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... edit_cache"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... install/local"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... turtlesim_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... param_rgb"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... spawn_client"
+	@echo "... sub_twise"
+	@echo "... param_rgb"
+	@echo "... turtlesim_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... rebuild_cache"
+	@echo "... turtlesim_generate_messages_py"
+	@echo "... edit_cache"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... turtlesim_generate_messages_lisp"
+	@echo "... install"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... pub_twise"
+	@echo "... list_install_components"
+	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... turtlesim_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... turtlesim_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... turtlesim_generate_messages_lisp"
-	@echo "... turtlesim_generate_messages_nodejs"
-	@echo "... turtlesim_generate_messages_py"
 	@echo "... std_srvs_generate_messages_py"
-	@echo "... pub_twise"
-	@echo "... sub_twise"
 	@echo "... src/test01_pub_twist.o"
 	@echo "... src/test01_pub_twist.i"
 	@echo "... src/test01_pub_twist.s"

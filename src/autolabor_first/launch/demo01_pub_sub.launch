@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="autolabor_first" type="talker_p" name="talker_p" />
+    <!-- <node pkg="autolabor_first" type="listener_p" name="hello_world2"/> -->
+
+</launch>

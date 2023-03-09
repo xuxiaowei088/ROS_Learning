@@ -1,0 +1,8 @@
+prefix=/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/devel
+
+Name: autolabor_first
+Description: Description of autolabor_first
+Version: 0.0.0
+Cflags: -I/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs
