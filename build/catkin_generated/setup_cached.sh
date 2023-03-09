@@ -8,6 +8,7 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/devel/lib:$LD_LIBRARY_PATH"
 export PWD='/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/build'
 export ROSLISP_PACKAGE_DIRECTORIES='/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/devel/share/common-lisp'
 export ROS_PACKAGE_PATH="/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/src:$ROS_PACKAGE_PATH"
