@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/src/autolabor_first/include/**",
+        "/home/xuxiaowei/workspace_ros/ROS_study_workSpace/ROS_Learning/src/turtlesim_test/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
